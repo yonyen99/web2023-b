@@ -34,6 +34,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => request('name'),
             'email' => request('email'),
+            'role_id' => request('role_id'),
             'password' => Hash::make($request->password)
         ]);
 
@@ -52,7 +53,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        
         $user = User::find($id);
+        if(!$user){
+            return response()->json(['message' =>'Note Found'],404);
+        }
+        $token = $user->createToken('API Token')->plainTextToken;
         $user = new ShowUserResource($user);
         return response()->json(['success' =>true, 'data' => $user],200);
     }
