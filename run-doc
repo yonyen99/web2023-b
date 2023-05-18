@@ -1,0 +1,1 @@
+cd resources/documents/api && apidoc -i . -o ../../../public/documents/api;
