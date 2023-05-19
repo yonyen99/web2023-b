@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -17,9 +18,12 @@ class Post extends Model
 
     public static function store($reques, $id = null)
     {
-        $post = $reques->only(['title', 'description','user_id']);
+        $post = $reques->only(['title', 'description']);
 
+        $post['user_id']= Auth::user()->id;
+        
         $post = self::updateOrCreate(['id' => $id], $post);
+
 
         return $post;
     }

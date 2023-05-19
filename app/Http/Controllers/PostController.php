@@ -41,7 +41,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-
+        
         if (Auth::user()->role->name !== 'admin') {
             return response()->json(['message' => 'No Permission to create post'], 403);
         }
