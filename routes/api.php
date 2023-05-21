@@ -32,11 +32,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/posts/{id}', [PostController::class, 'show']);
     Route::put('/posts/{id}', [PostController::class, 'update']);
     Route::delete('/posts/{id}', [PostController::class, 'destroy']);
-    
     Route::post('/logout', [AuthenticationController::class, 'logout']);
 });
-
-
 
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
@@ -46,12 +43,7 @@ Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 
 Route::get('/phones/{id}', [PhoneController::class, 'show']);
-
-
 Route::post('/likePost', [PostController::class, 'likePost']);
-
 Route::post('/register', [AuthenticationController::class, 'register']);
-
 Route::post('/login', [AuthenticationController::class, 'login']);
-
 Route::post('/roles', [RoleController::class, 'store']);

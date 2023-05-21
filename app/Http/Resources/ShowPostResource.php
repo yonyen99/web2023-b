@@ -19,7 +19,7 @@ class ShowPostResource extends JsonResource
             'title' =>$this->title,
             'description' =>$this->description,
             'created_by' =>$this->user,
-            'likeBy'=>$this->likeBy
+            'likeBy'=> UserResource::collection($this->likeBy)
         ];
     }
 }

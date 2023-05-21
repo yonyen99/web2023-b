@@ -24,7 +24,6 @@ class Post extends Model
         
         $post = self::updateOrCreate(['id' => $id], $post);
 
-
         return $post;
     }
 

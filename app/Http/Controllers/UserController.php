@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Resources\ShowUserResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -59,7 +60,7 @@ class UserController extends Controller
             return response()->json(['message' =>'Note Found'],404);
         }
         $token = $user->createToken('API Token')->plainTextToken;
-        $user = new ShowUserResource($user);
+        $user = new ShowUserResource ($user);
         return response()->json(['success' =>true, 'data' => $user],200);
     }
 

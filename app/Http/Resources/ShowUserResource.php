@@ -20,7 +20,7 @@ class ShowUserResource extends JsonResource
             'email' => $this->email,
             'phone_number' => $this->phone->number ?? null,
             'posts'=> $this->posts,
-            'likePosts'=>$this->likeposts
+            'likePosts'=> PostResource::collection($this->likeposts)
         ];
     }
 }

@@ -32,12 +32,12 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'title' => [
-            //     'required',
-            //     'min:5',
-            //     'max:10',
-            //     Rule::unique('posts')->ignore($this->id),
-            // ],
+            'title' => [
+                'required',
+                'min:5',
+                'max:10',
+                Rule::unique('posts')->ignore($this->id),
+            ],
             'description' => 'required',
         ];
     }
